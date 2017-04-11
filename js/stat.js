@@ -1,8 +1,8 @@
- 'use strict';
+'use strict';
 
-window.renderStatistics = function(ctx, names, times) {
+window.renderStatistics = function (ctx, names, times) {
   // Функция рисования облака
-  var drawCloud = function(x, y, width, heigth, color) {
+  var drawCloud = function (x, y, width, heigth, color) {
     // Рисуем тень
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     ctx.fillRect(x + 10, y + 10, width, heigth);
@@ -32,7 +32,7 @@ window.renderStatistics = function(ctx, names, times) {
   }
 
   // Функция рисования cтолбцов
-  var drawHistograms = function(color) {
+  var drawHistograms = function (color) {
 
     var max = maxElemArr(times);
     var histogramHeight = 150;        // px;
@@ -45,7 +45,7 @@ window.renderStatistics = function(ctx, names, times) {
     var tabBarBottom = 10;            // px;
     var tabBarTop = 15;               // px;
 
-    for(var i = 0, length = times.length; i < length; i++) {
+    for (var i = 0, length = times.length; i < length; i++) {
 
       setColumnStyle(i);
 
@@ -60,7 +60,7 @@ window.renderStatistics = function(ctx, names, times) {
   };
 
   // Отрисовка цветного текста по координатам
-  var drawText = function(text, x, y, color) {
+  var drawText = function (text, x, y, color) {
     ctx.font = '16px PT Mono';
     ctx.textBaseline = 'hanging';
     ctx.fillStyle = color;
@@ -77,7 +77,7 @@ window.renderStatistics = function(ctx, names, times) {
   };
 
   // Поиск максимального элемента массива
-  var maxElemArr = function(arr) {
+  var maxElemArr = function (arr) {
     var max = arr[0];
 
     for (var i = 0, length = arr.length; i < length; i++) {
@@ -93,5 +93,4 @@ window.renderStatistics = function(ctx, names, times) {
   drawText('Ура, вы победили!', 110, 30, '#000');
   drawText('Список результатов:', 110, 50, '#000');
   drawHistograms();
-
-}
+};
